@@ -1,0 +1,22 @@
+<div class="po-wrapper">
+  <!--
+<po-navbar *ngIf="isAuth" [p-shadow]="poNavBarShadow" [p-items]="navbarMenus">
+  </po-navbar>
+
+ -->
+  <po-toolbar *ngIf="isAuth" [p-title]="titleMenu" [p-profile]="profile"
+    [p-profile-actions]="profileActions"></po-toolbar>
+
+  <po-menu *ngIf="isAuth" p-logo="../../../../assets/Combio.png" [p-collapsed]='collapsed' [p-menus]="menus"></po-menu>
+
+  <po-page-default *ngIf="isAuth">
+    <div class="po-mb-5 po-pb-5">
+      <router-outlet *ngIf="isAuth"></router-outlet>
+
+    </div>
+  </po-page-default>
+  <po-page-default *ngIf="!isAuth">
+    <app-login></app-login>
+  </po-page-default>
+
+</div>

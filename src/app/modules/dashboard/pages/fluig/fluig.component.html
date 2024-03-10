@@ -1,3 +1,43 @@
-<p>
-  fluig works!
-</p>
+<div class="po-container">
+  <!-- Linha para os Gauges -->
+  <div class="po-row" >
+    <div class="po-md-3">
+    <po-widget
+    p-background="../../../../../assets/Mysql_logo2.png"
+    [p-height]="widgetHeight"
+    p-title="Days to Payment"
+  
+  >
+
+    <div class="po-font-subtitle po-text-center">17 days left</div>
+    <div class="po-text-center">Scheduled to 05/04/2018</div>
+  </po-widget>
+</div>
+    <div class="po-md-3" *ngFor="let gauge of gauges">
+      <po-gauge [p-height]="widgetHeight" [p-value]="gauge.value" [p-description]="gauge.description" [p-ranges]="MemoriaUsadaRanges"></po-gauge>
+    </div>
+    <div class="po-md-3">
+      <po-chart
+      [p-series]="pieUsing"
+    >
+    </po-chart>
+    </div>
+    <div class="po-md-3">
+    <po-chart [p-type]="line" [p-series]="lineChartData" [p-categories]="chartCategories"></po-chart>
+  </div>
+
+  </div>
+
+  <!-- Linha para os Gráficos de Linha e Barra -->
+  <div class="po-row">
+    <!-- Gráfico de Linha -->
+    <div class="po-md-6">
+      <po-chart [p-type]="line" [p-series]="lineChartData" [p-categories]="chartCategories"></po-chart>
+    </div>
+
+    <!-- Gráfico de Barra -->
+    <div class="po-md-6">
+      <po-chart [p-type]="bar" [p-series]="barChartData" [p-categories]="chartCategories"></po-chart>
+    </div>
+  </div>
+</div>
